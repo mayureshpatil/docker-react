@@ -3,10 +3,7 @@ pipeline {
     agent any
      stages{
          stage ('docker push'){
-             node {
-
-    checkout scm
-
+             steps{
     docker.withRegistry('https://registry.hub.docker.com', '79f32187-a82b-4e99-bde5-b146a10c4501') {
 
         def customImage = docker.build("mayureshpatil/dockerwebapp")
@@ -15,7 +12,7 @@ pipeline {
         customImage.push()
     }
              }
-         }
+         
 
     stage('Docker Deploy Dev'){
             steps{

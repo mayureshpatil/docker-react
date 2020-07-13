@@ -19,16 +19,7 @@ pipeline {
              
          
 
-    stage('Docker Deploy Dev'){
-            steps{
-                def dockerRun = 'docker run -p 8080:8080 -d --name dockerwebapp 8080'
-                sshagent(['dev-server']) {
-                sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.4.38 ${dockerRun}"
-                }
-                
-                }
-
-}
+   
      }
 }
 

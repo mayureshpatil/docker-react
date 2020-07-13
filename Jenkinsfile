@@ -9,4 +9,13 @@ node {
         /* Push the container to the custom Registry */
         customImage.push()
     }
+
+    stage('Docker Deploy Dev'){
+            steps{
+                sshagent(['dev-server']) {
+                def dockerRun = 'docker run -d --name dockerwebapp -p 40000:8080'
+                }
+                sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.4.38 $(dockerRun)"
+                }
+
 }

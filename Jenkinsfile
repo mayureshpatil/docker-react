@@ -1,4 +1,9 @@
-node {
+
+pipeline {
+    agent any
+     stages{
+         stage ('docker push'){
+             node {
 
     checkout scm
 
@@ -9,6 +14,8 @@ node {
         /* Push the container to the custom Registry */
         customImage.push()
     }
+             }
+         }
 
     stage('Docker Deploy Dev'){
             steps{
@@ -18,4 +25,6 @@ node {
                 sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.4.38 $(dockerRun)"
                 }
 
+}
+     }
 }

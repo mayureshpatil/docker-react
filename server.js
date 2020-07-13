@@ -9,7 +9,7 @@ const HOST = '0.0.0.0';
 // App
 const app = express();
 app.get('/', (req, res) => {
-  res.send('Hello Mayuresh This is Lumiq Problem 2\n');
+  res.send('Hello Mayuresh This is Lumiq Problem 2 before integartion\n');
 });
 
 app.listen(PORT, HOST);

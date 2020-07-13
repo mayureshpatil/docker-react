@@ -7,7 +7,7 @@ pipeline {
          }
          stage ('docker push'){
              withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubp')]) {
-                 sh 'docker login -u mayureshpatil -p {$dockerHubp}
+                 sh "docker login -u mayureshpatil -p {$dockerHubp}"
     // some block
 }
              sh 'docker push mayureshpatil/dockernode'

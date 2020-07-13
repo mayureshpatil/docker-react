@@ -12,6 +12,7 @@ pipeline {
         customImage.push()
     }
              }
+         }
          
 
     stage('Docker Deploy Dev'){

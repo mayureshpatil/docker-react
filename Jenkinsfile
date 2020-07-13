@@ -11,6 +11,7 @@ pipeline {
     // some block
 }
              sh 'docker push mayureshpatil/dockernode'
+         }
             
              
          

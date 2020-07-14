@@ -9,10 +9,11 @@ pipeline {
          }
          stage ('docker push'){
              steps{
+                 sh 'docker push mayureshpatil/dockernode'
             
     // some block
 }
-             sh 'docker push mayureshpatil/dockernode'
+             
          }
         
      }

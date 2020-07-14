@@ -20,11 +20,11 @@ pipeline {
 
     stage('Docker Deploy Dev'){
             steps{
-                def dockerRun = 'docker run -p 8080:8080 -d --name dockerwebapp 8080'
+               
                 sshagent(['dev-server']) {
                  // Remove existing container, if container name does not exists still proceed with the build
                 sh script: "ssh ec2-user@172.31.0.38 docker rm -f dockerwebapp ",  returnStatus: true
-                sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.4.38 ${dockerRun}"
+                sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.4.38 docker run -p 8080:8080 -d --name dockerwebapp mayureshpatil/dockernode"
                 }
                 
                 }

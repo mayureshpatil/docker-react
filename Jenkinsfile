@@ -14,6 +14,6 @@ pipeline {
 }
              sh 'docker push mayureshpatil/dockernode'
          }
-         }
+        
      }
 }

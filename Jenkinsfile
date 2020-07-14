@@ -9,7 +9,7 @@ pipeline {
          stage ('docker push'){
              steps{
             
-             withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerHUBP')]) {{
+             withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerHUBP')]) {
                  sh "docker login -u mayureshpatil -p {$dockerHUBP}"
     }
              sh 'docker push mayureshpatil/dockernode'
